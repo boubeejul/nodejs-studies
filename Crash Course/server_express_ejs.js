@@ -1,6 +1,7 @@
 const express = require('express');
 
 const server = express();
+const blogsRoutes = require('./routes/blogsRoutes');
 server.listen(3333);
 
 // set view engine -> EJS
@@ -12,14 +13,17 @@ server.set('views', 'views_ejs');
 // -> 'public' == folder's name
 server.use(express.static('public'));
 
-server.get('/', (req, res) => {
-  const blogs = [
-    {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-    {title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-    {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-  ];
+server.use(express.urlencoded({
+  extended: true
+}));
 
-  
+const blogs = [
+  {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+  {title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+  {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+];
+
+server.get('/', (req, res) => {
   // the first parameter is the file's name to be rendered without the extension
   // the second parameter sends data to the EJS file
 
@@ -38,11 +42,8 @@ server.get('/about', (req, res) => {
   });
 });
 
-server.get('/blogs/create', (req, res) => {
-  res.render('create', {
-    title: 'Create a blog'
-  });
-})
+// blogs routes
+server.use('/blogs', blogsRoutes);
 
 server.use((req, res) => {
   res.status(404).render('404');
