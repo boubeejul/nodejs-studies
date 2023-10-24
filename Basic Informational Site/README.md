@@ -8,8 +8,14 @@ To run this project, clone the repository, open the directory and install the de
 npm install
 ```
 
-To start this project, use 
+To start the project, use 
 
 ```
 node server.js
 ```
+
+# Stacks
+- Node.js
+- HTML
+- CSS
+- Express
