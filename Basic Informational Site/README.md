@@ -8,11 +8,12 @@ To run this project, clone the repository, open the directory and install the de
 npm install
 ```
 
-To start the project, use 
+To start, use:
 
 ```
 node server.js
 ```
+The project runs at `http://localhost:3333/`
 
 # Stacks
 - Node.js
