@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Mini Message Board <%= title %>
+    </title>
+</head>
+
+<body>
+    <main>
+        <button class="add-message">
+            <a href="/create"> Add your message </a>
+        </button>
+
+        <% if(messages.length > 0) { %>
+            <% messages.map( message=> { %>
+                <div class="message-card">
+                    <span class="message-text">
+                        <%= message.text %>
+                    </span>
+
+                    <span class="message-user">
+                        <%= message.user %>
+                    </span>
+
+                    <span class="message-date">
+                        <%= message.added %>
+                    </span>
+                </div>
+                <% }) %>
+                    <% } else { %>
+                        <h2>No messages</h2>
+                        <% } %>
+
+    </main>
+</body>
+
+</html>

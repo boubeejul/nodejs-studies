@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Mini Message Board <%= title %>
+    </title>
+</head>
+
+<body>
+    <main>
+        <form action="/create" method="post">
+            <label for="message">Your message:</label>
+            <input type="text" name="message" id="message" required>
+            <label for="username">Your name:</label>
+            <input type="text" name="username" id="username" required>
+            <button type="submit">Send message</button>
+        </form>
+    </main>
+</body>
+
+</html>

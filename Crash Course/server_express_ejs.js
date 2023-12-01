@@ -6,6 +6,7 @@ server.listen(3333);
 
 // set view engine -> EJS
 server.set('view engine', 'ejs');
+// set path to views
 server.set('views', 'views_ejs');
 
 // middleware & static files
